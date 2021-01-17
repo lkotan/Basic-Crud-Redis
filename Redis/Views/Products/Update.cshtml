@@ -1,0 +1,12 @@
+﻿@model Product
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+    <form asp-action="Update" method="post">
+        <input type="text" name="name" value="@Model.Name"/>
+        <input type="number" name="price" value="@Model.Price"/>
+        <button type="submit">Save</button>
+    </form>
+

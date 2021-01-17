@@ -1,0 +1,46 @@
+﻿@model List<Product>
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<form asp-action="Add" method="post">
+    <input type="text" name="name" />
+    <input type="number" name="price" />
+    <button type="submit">Save</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.Name</td>
+                <td>@item.Price</td>
+                <td>
+                    <a asp-action="Update" asp-route-id="@item.Id">
+                        <i class="fa fa-edit"></i>
+                    </a>
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.Id">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+
+        }
+
+    </tbody>
+</table>
+
